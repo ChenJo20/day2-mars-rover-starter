@@ -101,7 +101,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_0_1_N_when_execute_command_given_orient_north_and_move_forward() {
-        MarsRover rover = new MarsRover(new WestOriented());
+        MarsRover rover = new MarsRover();
 
         rover.executeCommand("M");
         String report = rover.getReport();
