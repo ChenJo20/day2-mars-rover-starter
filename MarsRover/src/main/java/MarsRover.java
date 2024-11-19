@@ -28,7 +28,15 @@ public class MarsRover {
             if (Direction.N.equals(orientation.getDirection())) {
                 yPos++;
             }
-
+            if (Direction.E.equals(orientation.getDirection())) {
+                xPos++;
+            }
+            if (Direction.S.equals(orientation.getDirection())) {
+                yPos--;
+            }
+            if (Direction.W.equals(orientation.getDirection())) {
+                xPos--;
+            }
         }
         return;
     }
