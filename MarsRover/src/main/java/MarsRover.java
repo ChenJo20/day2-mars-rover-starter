@@ -1,54 +1,26 @@
 public class MarsRover {
+    private Orientation orientation;
     private Direction direct;
 
     MarsRover() {
         direct = Direction.N;
+        orientation = new NorthOriented();
     }
 
-    MarsRover(Direction direct) {
-        this.direct = direct;
+    MarsRover(Orientation orientation) {
+        this.orientation = orientation;
     }
 
     public String getReport() {
-        return "0:0:" + direct;
+        return "0:0:" + orientation.getDirection();
     }
 
     public void executeCommand(String command) {
         if ("L".equals(command)) {
-            if (direct.equals(Direction.N)) {
-                direct = Direction.W;
-                return;
-            }
-            if (direct.equals(Direction.W)) {
-                direct = Direction.S;
-                return;
-            }
-            if (direct.equals(Direction.S)) {
-                direct = Direction.E;
-                return;
-            }
-            if (direct.equals(Direction.E)) {
-                direct = Direction.N;
-                return;
-            }
+            orientation = orientation.turnLeft();
         }
         if ("R".equals(command)) {
-            if (direct.equals(Direction.N)) {
-                direct = Direction.E;
-                return;
-            }
-            if (direct.equals(Direction.E)) {
-                direct = Direction.S;
-                return;
-            }
-            if (direct.equals(Direction.S)) {
-                direct = Direction.W;
-                return;
-            }
-            if (direct.equals(Direction.W)) {
-                direct = Direction.N;
-                return;
-            }
+            orientation = orientation.turnRight();
         }
         return;
     }
