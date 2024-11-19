@@ -32,6 +32,10 @@ public class MarsRover {
                 direction = "S";
                 return;
             }
+            if (direction.equals("S")) {
+                direction = "E";
+                return;
+            }
         }
     }
 }
