@@ -143,7 +143,7 @@ public class MarsRoverTest {
     public void should_return_0_minus_1_N_when_execute_command_given_orient_north_and_move_backward() {
         MarsRover rover = new MarsRover();
 
-        rover.executeCommand("M");
+        rover.executeCommand("B");
         String report = rover.getReport();
 
         assertEquals("0:-1:N", report);
@@ -153,7 +153,7 @@ public class MarsRoverTest {
     public void should_return_minus_1_0_E_when_execute_command_given_orient_east_and_move_backward() {
         MarsRover rover = new MarsRover(new EastOriented());
 
-        rover.executeCommand("M");
+        rover.executeCommand("B");
         String report = rover.getReport();
 
         assertEquals("-1:0:E", report);
@@ -163,7 +163,7 @@ public class MarsRoverTest {
     public void should_return_0_1_S_when_execute_command_given_orient_south_and_move_backward() {
         MarsRover rover = new MarsRover(new SouthOriented());
 
-        rover.executeCommand("M");
+        rover.executeCommand("B");
         String report = rover.getReport();
 
         assertEquals("0:1:S", report);
@@ -173,7 +173,7 @@ public class MarsRoverTest {
     public void should_return_1_0_E_when_execute_command_given_orient_west_and_move_backward() {
         MarsRover rover = new MarsRover(new WestOriented());
 
-        rover.executeCommand("M");
+        rover.executeCommand("B");
         String report = rover.getReport();
 
         assertEquals("1:0:W", report);
