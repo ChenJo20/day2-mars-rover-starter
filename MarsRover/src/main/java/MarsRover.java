@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 public class MarsRover {
     private static final String EMPTY = "";
     private Orientation orientation;
@@ -20,8 +23,13 @@ public class MarsRover {
         if (command == null || EMPTY.equals(command)) {
             return;
         }
-        turnDirection(command);
-        move(command);
+        IntStream.rangeClosed(0, command.length() - 1)
+                .mapToObj(i -> command.substring(i, i+1))
+                .forEach(action -> {
+                    turnDirection(action);
+                    move(action);
+                });
+
     }
 
     private void move(String command) {
