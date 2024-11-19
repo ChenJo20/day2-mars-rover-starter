@@ -1,63 +1,55 @@
 public class MarsRover {
-
-    private String direction;
+    private Direction direct;
 
     MarsRover() {
-        direction = "N";
+        direct = Direction.N;
     }
 
-    MarsRover(String direction) {
-        this.direction = direction;
+    MarsRover(Direction direct) {
+        this.direct = direct;
     }
 
     public String getReport() {
-        return "0:0:" + direction;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
+        return "0:0:" + direct;
     }
 
     public void executeCommand(String command) {
         if ("L".equals(command)) {
-            if (direction.equals("N")) {
-                direction = "W";
+            if (direct.equals(Direction.N)) {
+                direct = Direction.W;
                 return;
             }
-            if (direction.equals("W")) {
-                direction = "S";
+            if (direct.equals(Direction.W)) {
+                direct = Direction.S;
                 return;
             }
-            if (direction.equals("S")) {
-                direction = "E";
+            if (direct.equals(Direction.S)) {
+                direct = Direction.E;
                 return;
             }
-            if (direction.equals("E")) {
-                direction = "N";
+            if (direct.equals(Direction.E)) {
+                direct = Direction.N;
                 return;
             }
         }
         if ("R".equals(command)) {
-            if (direction.equals("N")) {
-                direction = "E";
+            if (direct.equals(Direction.N)) {
+                direct = Direction.E;
                 return;
             }
-            if (direction.equals("E")) {
-                direction = "S";
+            if (direct.equals(Direction.E)) {
+                direct = Direction.S;
                 return;
             }
-            if (direction.equals("S")) {
-                direction = "W";
+            if (direct.equals(Direction.S)) {
+                direct = Direction.W;
                 return;
             }
-            if (direction.equals("W")) {
-                direction = "N";
+            if (direct.equals(Direction.W)) {
+                direct = Direction.N;
                 return;
             }
         }
+        return;
     }
 }
