@@ -6,6 +6,10 @@ public class MarsRover {
         direction = "N";
     }
 
+    MarsRover(String direction) {
+        this.direction = direction;
+    }
+
     public String getReport() {
         return "0:0:" + direction;
     }
@@ -22,6 +26,11 @@ public class MarsRover {
         if ("L".equals(command)) {
             if (direction.equals("N")) {
                 direction = "W";
+                return;
+            }
+            if (direction.equals("W")) {
+                direction = "S";
+                return;
             }
         }
     }
