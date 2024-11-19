@@ -1,6 +1,8 @@
 public class MarsRover {
     private Orientation orientation;
     private Direction direct;
+    private int xPos;
+    private int yPos;
 
     MarsRover() {
         direct = Direction.N;
@@ -12,7 +14,7 @@ public class MarsRover {
     }
 
     public String getReport() {
-        return "0:0:" + orientation.getDirection();
+        return String.format("%d:%d:%s", xPos, yPos, orientation.getDirection());
     }
 
     public void executeCommand(String command) {
@@ -21,6 +23,12 @@ public class MarsRover {
         }
         if ("R".equals(command)) {
             orientation = orientation.turnRight();
+        }
+        if ("M".equals(command)) {
+            if (Direction.N.equals(orientation.getDirection())) {
+                yPos++;
+            }
+
         }
         return;
     }
