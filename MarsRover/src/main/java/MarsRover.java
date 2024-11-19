@@ -1,11 +1,10 @@
 public class MarsRover {
+    private static final String EMPTY = "";
     private Orientation orientation;
-    private Direction direct;
     private int xPos;
     private int yPos;
 
     MarsRover() {
-        direct = Direction.N;
         orientation = new NorthOriented();
     }
 
@@ -18,26 +17,36 @@ public class MarsRover {
     }
 
     public void executeCommand(String command) {
+        if (command == null || EMPTY.equals(command)) {
+            return;
+        }
+        turnDirection(command);
+        if ("M".equals(command)) {
+            moveForward(orientation);
+        }
+    }
+
+    private void turnDirection(String command) {
         if ("L".equals(command)) {
             orientation = orientation.turnLeft();
         }
         if ("R".equals(command)) {
             orientation = orientation.turnRight();
         }
-        if ("M".equals(command)) {
-            if (Direction.N.equals(orientation.getDirection())) {
-                yPos++;
-            }
-            if (Direction.E.equals(orientation.getDirection())) {
-                xPos++;
-            }
-            if (Direction.S.equals(orientation.getDirection())) {
-                yPos--;
-            }
-            if (Direction.W.equals(orientation.getDirection())) {
-                xPos--;
-            }
+    }
+
+    private void moveForward(Orientation orientation) {
+        if (Direction.N.equals(orientation.getDirection())) {
+            yPos++;
         }
-        return;
+        if (Direction.E.equals(orientation.getDirection())) {
+            xPos++;
+        }
+        if (Direction.S.equals(orientation.getDirection())) {
+            yPos--;
+        }
+        if (Direction.W.equals(orientation.getDirection())) {
+            xPos--;
+        }
     }
 }
