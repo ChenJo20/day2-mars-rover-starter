@@ -21,6 +21,10 @@ public class MarsRover {
             return;
         }
         turnDirection(command);
+        move(command);
+    }
+
+    private void move(String command) {
         if ("M".equals(command)) {
             moveForward(orientation);
         }
