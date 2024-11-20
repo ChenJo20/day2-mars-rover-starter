@@ -2,6 +2,8 @@ import java.util.stream.IntStream;
 
 public class MarsRover {
     private static final String EMPTY = "";
+    private static final String REPORT_FORMATTER = "%s:%s";
+
     private Orientation orientation;
 
     MarsRover() {
@@ -13,7 +15,7 @@ public class MarsRover {
     }
 
     public String getReport() {
-        return String.format("%s:%s", orientation.getCoordinate().showCoordinate(), orientation.getDirection());
+        return String.format(REPORT_FORMATTER, orientation.getCoordinate().showCoordinate(), orientation.getDirection());
     }
 
     public void executeCommand(String command) {
