@@ -3,11 +3,11 @@ import java.util.stream.IntStream;
 public class MarsRover {
     private static final String EMPTY = "";
     private static final String REPORT_FORMATTER = "%s:%s";
-
+    private static final Coordinate initialCoordinate = new Coordinate(0, 0);
     private Orientation orientation;
 
     MarsRover() {
-        orientation = new NorthOriented(new Coordinate(0, 0));
+        orientation = new NorthOriented(initialCoordinate);
     }
 
     MarsRover(Orientation orientation) {
