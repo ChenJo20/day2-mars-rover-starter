@@ -16,4 +16,12 @@ public class Coordinate {
     public String getCoordinate() {
         return String.format(COORDINATE_FORMATTER, xPos, yPos);
     }
+
+    public int getXPos() {
+        return this.xPos;
+    }
+
+    public int getYPos() {
+        return yPos;
+    }
 }
