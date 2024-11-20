@@ -32,19 +32,19 @@ public class MarsRover {
     }
 
     private void move(String command) {
-        if ("M".equals(command)) {
+        if (Command.MOVE_FORWARD.getCommandName().equals(command)) {
             orientation = orientation.moveForward();
         }
-        if ("B".equals(command)) {
+        if (Command.MOVE_BACKWARD.getCommandName().equals(command)) {
             orientation = orientation.moveBackward();
         }
     }
 
     private void turnDirection(String command) {
-        if ("L".equals(command)) {
+        if (Command.TURN_LEFT.getCommandName().equals(command)) {
             orientation = orientation.turnLeft();
         }
-        if ("R".equals(command)) {
+        if (Command.TURN_RIGHT.getCommandName().equals(command)) {
             orientation = orientation.turnRight();
         }
     }
