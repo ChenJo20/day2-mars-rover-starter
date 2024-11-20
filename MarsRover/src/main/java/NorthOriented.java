@@ -26,6 +26,11 @@ public class NorthOriented implements Orientation {
     }
 
     @Override
+    public Orientation moveBackward() {
+        return new NorthOriented(new Coordinate(coordinate.getXPos(), coordinate.getYPos() - 1));
+    }
+
+    @Override
     public Coordinate getCoordinate() {
         return coordinate;
     }

@@ -26,6 +26,11 @@ public class WestOriented implements Orientation {
     }
 
     @Override
+    public Orientation moveBackward() {
+        return new WestOriented(new Coordinate(coordinate.getXPos() + 1, coordinate.getYPos()));
+    }
+
+    @Override
     public Coordinate getCoordinate() {
         return coordinate;
     }

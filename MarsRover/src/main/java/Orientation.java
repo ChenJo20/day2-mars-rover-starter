@@ -8,5 +8,7 @@ public interface Orientation {
 
     public Orientation moveForward();
 
+    public Orientation moveBackward();
+
     public Coordinate getCoordinate();
 }

@@ -27,6 +27,11 @@ public class SouthOriented implements Orientation {
     }
 
     @Override
+    public Orientation moveBackward() {
+        return new SouthOriented(new Coordinate(coordinate.getXPos(), coordinate.getYPos() + 1));
+    }
+
+    @Override
     public Coordinate getCoordinate() {
         return coordinate;
     }
