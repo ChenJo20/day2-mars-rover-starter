@@ -31,7 +31,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_south_when_execute_command_given_orient_west_and_turn_left() {
-        MarsRover rover = new MarsRover(new WestOriented());
+        MarsRover rover = new MarsRover(new WestOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("L");
         String report = rover.getReport();
@@ -41,7 +41,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_east_when_execute_command_given_orient_south_and_turn_left() {
-        MarsRover rover = new MarsRover(new SouthOriented());
+        MarsRover rover = new MarsRover(new SouthOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("L");
         String report = rover.getReport();
@@ -51,7 +51,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_north_when_execute_command_given_orient_east_and_turn_left() {
-        MarsRover rover = new MarsRover(new EastOriented());
+        MarsRover rover = new MarsRover(new EastOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("L");
         String report = rover.getReport();
@@ -71,7 +71,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_south_when_execute_command_given_orient_east_and_turn_right() {
-        MarsRover rover = new MarsRover(new EastOriented());
+        MarsRover rover = new MarsRover(new EastOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("R");
         String report = rover.getReport();
@@ -81,7 +81,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_west_when_execute_command_given_orient_south_and_turn_right() {
-        MarsRover rover = new MarsRover(new SouthOriented());
+        MarsRover rover = new MarsRover(new SouthOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("R");
         String report = rover.getReport();
@@ -91,7 +91,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_face_north_when_execute_command_given_orient_west_and_turn_right() {
-        MarsRover rover = new MarsRover(new WestOriented());
+        MarsRover rover = new MarsRover(new WestOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("R");
         String report = rover.getReport();
@@ -111,7 +111,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_1_0_E_when_execute_command_given_orient_east_and_move_forward() {
-        MarsRover rover = new MarsRover(new EastOriented());
+        MarsRover rover = new MarsRover(new EastOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("M");
         String report = rover.getReport();
@@ -121,7 +121,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_0_minus_1_S_when_execute_command_given_orient_south_and_move_forward() {
-        MarsRover rover = new MarsRover(new SouthOriented());
+        MarsRover rover = new MarsRover(new SouthOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("M");
         String report = rover.getReport();
@@ -131,7 +131,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_minus_1_0_E_when_execute_command_given_orient_west_and_move_forward() {
-        MarsRover rover = new MarsRover(new WestOriented());
+        MarsRover rover = new MarsRover(new WestOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("M");
         String report = rover.getReport();
@@ -151,7 +151,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_minus_1_0_E_when_execute_command_given_orient_east_and_move_backward() {
-        MarsRover rover = new MarsRover(new EastOriented());
+        MarsRover rover = new MarsRover(new EastOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("B");
         String report = rover.getReport();
@@ -161,7 +161,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_0_1_S_when_execute_command_given_orient_south_and_move_backward() {
-        MarsRover rover = new MarsRover(new SouthOriented());
+        MarsRover rover = new MarsRover(new SouthOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("B");
         String report = rover.getReport();
@@ -171,7 +171,7 @@ public class MarsRoverTest {
 
     @Test
     public void should_return_1_0_E_when_execute_command_given_orient_west_and_move_backward() {
-        MarsRover rover = new MarsRover(new WestOriented());
+        MarsRover rover = new MarsRover(new WestOriented(new Coordinate(0, 0)));
 
         rover.executeCommand("B");
         String report = rover.getReport();

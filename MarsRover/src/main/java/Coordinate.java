@@ -13,7 +13,7 @@ public class Coordinate {
         this.yPos = yPos;
     }
 
-    public String getCoordinate() {
+    public String showCoordinate() {
         return String.format(COORDINATE_FORMATTER, xPos, yPos);
     }
 

@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class MarsRover {
@@ -8,7 +7,7 @@ public class MarsRover {
     private int yPos;
 
     MarsRover() {
-        orientation = new NorthOriented();
+        orientation = new NorthOriented(new Coordinate(0, 0));
     }
 
     MarsRover(Orientation orientation) {
@@ -16,7 +15,7 @@ public class MarsRover {
     }
 
     public String getReport() {
-        return String.format("%d:%d:%s", xPos, yPos, orientation.getDirection());
+        return String.format("%s:%s", orientation.getCoordinate().showCoordinate(), orientation.getDirection());
     }
 
     public void executeCommand(String command) {
@@ -24,7 +23,7 @@ public class MarsRover {
             return;
         }
         IntStream.rangeClosed(0, command.length() - 1)
-                .mapToObj(i -> command.substring(i, i+1))
+                .mapToObj(i -> command.substring(i, i + 1))
                 .forEach(action -> {
                     turnDirection(action);
                     move(action);
@@ -34,7 +33,7 @@ public class MarsRover {
 
     private void move(String command) {
         if ("M".equals(command)) {
-            moveForward(orientation);
+            orientation = orientation.moveForward();
         }
         if ("B".equals(command)) {
             moveBackward(orientation);
@@ -47,21 +46,6 @@ public class MarsRover {
         }
         if ("R".equals(command)) {
             orientation = orientation.turnRight();
-        }
-    }
-
-    private void moveForward(Orientation orientation) {
-        if (Direction.N.equals(orientation.getDirection())) {
-            yPos++;
-        }
-        if (Direction.E.equals(orientation.getDirection())) {
-            xPos++;
-        }
-        if (Direction.S.equals(orientation.getDirection())) {
-            yPos--;
-        }
-        if (Direction.W.equals(orientation.getDirection())) {
-            xPos--;
         }
     }
 
